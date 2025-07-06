@@ -141,7 +141,7 @@ ask them the reach out to my email or phone number and share my email and phone 
 
         response = gemini.chat.completions.create(model=model_name, messages=messages)
         self.update_history(session_id, {"role": "user", "content": message})
-        self.update_history(session_id, {"role": "system", "content": response.choices[0].message.content})
+        self.update_history(session_id, {"role": "assistant", "content": response.choices[0].message.content})
         return response.choices[0].message.content
     
 class ChatRequest(BaseModel):
