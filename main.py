@@ -157,6 +157,6 @@ def ai_chat(request: ChatRequest):
     except Exception as e:
         return { "error": str(e) }
 
-@app.get("/all-sessions")
+@app.get("/ai/all-sessions")
 def all_sessions():
     return get_all_conversations_grouped()
