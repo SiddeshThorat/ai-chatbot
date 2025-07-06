@@ -85,6 +85,9 @@ class ChatRequest(BaseModel):
 
 @app.post("/ai/chat")
 def ai_chat(request: ChatRequest):
-    me = Me()
-    response = me.chat(request.message, request.session_id)
-    return { "response": response }
+    try:
+        me = Me()
+        response = me.chat(request.message, request.session_id)
+        return { "response": response }
+    except Exception as e:
+        return { "error": str(e) }
